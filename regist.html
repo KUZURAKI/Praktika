@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/scss/regist.css" />
+    <title>Regist</title>
+  </head>
+  <body>
+    <!-- НАЧАЛО -->
+    <header>
+      <div class="containet">
+        <div class="container-block">
+          <div class="block-1">
+            <p class="logo">👨🏻‍🦱🙆🏻‍♀️👩🏻</p>
+            <p class="logo-text">Гагарин 2025 <span>"Семейный"</span></p>
+          </div>
+
+          <div class="block-2">
+            <a href="index.html">Главная</a>
+            <a href="concurs.html">Конкурсы</a>
+            <a href="#">О нас</a>
+            <a href="#">Отзывы</a>
+            <button onclick="window.location.href='sing_in.html'">Войти</button>
+            <button class="theme">🌑</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="page-wrapper">
+        <div class="form-card">
+          <h2 class="form-title">РЕГИСТРАЦИЯ</h2>
+          <form
+            class="registration-form"
+            action="#"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="form-row single-column">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Введите ваш Email"
+                required
+              />
+            </div>
+            <div class="form-row double-column">
+              <div class="form-group">
+                <label for="fname">Имя</label>
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Имя"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="lname">Фамилия</label>
+                <input
+                  type="text"
+                  id="lname"
+                  name="lname"
+                  placeholder="Фамилия"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row double-column">
+              <div class="form-group">
+                <label for="age">Возраст</label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  min="0"
+                  placeholder="Возраст"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="gender">Пол</label>
+                <select id="gender" name="gender" required>
+                  <option value="">Выберите пол</option>
+                  <option value="male">Мужской</option>
+                  <option value="female">Женский</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row double-column">
+              <div class="form-group">
+                <label for="password">Пароль</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Пароль"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="password2">Повторите пароль</label>
+                <input
+                  type="password"
+                  id="password2"
+                  name="password2"
+                  placeholder="Повторите пароль"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row single-column">
+              <label for="photo">Семейное фото</label>
+              <input
+                type="file"
+                id="photo"
+                name="photo"
+                placeholder="Обзор"
+                accept="image/*"
+                required
+              />
+            </div>
+            <div class="form-row checkbox-row">
+              <input type="checkbox" id="agree" name="agree" required />
+              <label for="agree"
+                >Я согласен на обработку персональных данных</label
+              >
+            </div>
+          </form>
+        </div>
+
+        <div class="form-card">
+          <h2 class="form-title">ЧЛЕНЫ СЕМЬИ</h2>
+          <form class="family-form" action="#" method="post">
+            <div class="form-row double-column">
+              <div class="form-group">
+                <label for="familyMemberName">Имя</label>
+                <input
+                  type="text"
+                  id="familyMemberName"
+                  name="familyMemberName"
+                  placeholder="Имя"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="familyMemberSurname">Фамилия</label>
+                <input
+                  type="text"
+                  id="familyMemberSurname"
+                  name="familyMemberSurname"
+                  placeholder="Фамилия"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-row double-column">
+              <div class="form-group">
+                <label for="familyMemberAge">Возраст</label>
+                <input
+                  type="number"
+                  id="familyMemberAge"
+                  name="familyMemberAge"
+                  placeholder="Возраст"
+                  min="0"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="familyMemberGender">Пол</label>
+                <select
+                  id="familyMemberGender"
+                  name="familyMemberGender"
+                  required
+                >
+                  <option value="">Выберите пол</option>
+                  <option value="male">Мужской</option>
+                  <option value="female">Женский</option>
+                </select>
+              </div>
+            </div>
+            <div class="buttons-row">
+              <button type="button" class="btn add-btn">Добавить</button>
+              <button type="button" class="btn remove-btn">Убрать</button>
+            </div>
+          </form>
+        </div>
+
+        <button class="register-btn" type="submit" form="main-form">
+          ЗАРЕГИСТРИРОВАТЬСЯ
+        </button>
+      </div>
+    </main>
+
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+
+    <!-- КОНЕЦ -->
+    <footer>
+      <div class="footer-content">
+        <div class="block-left">
+          <h3>Моя семья — мой космос</h3>
+          <p></p>
+        </div>
+        <div class="block-right">
+          <div class="footer-section">
+            <h3>О нас</h3>
+            <ul>
+              <li><a href="#">Главная</a></li>
+              <li><a href="#">О нас</a></li>
+              <li><a href="#">Конкурсы</a></li>
+              <li><a href="#">Контакты</a></li>
+              <li><a href="#">Условия использования</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Наши соц. сети</h3>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Youtube</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© Гагарин 2025 "Семейный"</p>
+        <p>Семья — твой маленький мир, где начинается большое счастье</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/sing_in.js"></script>
+  </body>
+</html>
