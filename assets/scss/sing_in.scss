@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Roboto", serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  h1 {
+    font-size: 42px;
+  }
+  h3 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 28px;
+  }
+  a {
+    font-size: 20px;
+    text-decoration: 0;
+    color: #000000;
+    font-weight: 700;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+header {
+  .container {
+    &-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+
+      .block-1 {
+        font-weight: 700;
+        .logo {
+          margin: 0;
+          padding: 0;
+        }
+        .logo-text {
+          margin: 0;
+          padding: 0;
+          font-size: 18px;
+        }
+      }
+
+      .block-2 {
+        display: flex;
+        gap: 50px;
+        align-items: center;
+
+        button {
+          font-weight: 600;
+          width: 150px;
+          height: 50px;
+          border: 0;
+          font-size: 21px;
+          cursor: pointer;
+          transition: 0.3s ease-in-out;
+          border-radius: 20px;
+
+          a {
+            text-decoration: none;
+            color: white;
+          }
+        }
+
+        .theme {
+          display: flex;
+          background-color: transparent;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 2px solid black;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+// СЕРЕДИНА
+main {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .form-card {
+    // background-color: #1c1f26;
+    // background-color: #4b2e67;
+    background-color: white;
+    border-radius: 40px;
+    padding: 20px 30px;
+    max-width: 600px;
+    margin: 0;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+
+    .form-title {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      text-align: center;
+      color: black;
+    }
+
+    form {
+      .form-row.single-column {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+
+        label {
+          text-align: left;
+          font-size: 1rem;
+          margin-bottom: 5px;
+          color: black;
+        }
+
+        input {
+          background-color: #433f4e;
+          border: none;
+          border-radius: 30px;
+          padding: 12px 16px;
+          font-size: 1rem;
+          color: #c5c5d8;
+
+          &::placeholder {
+            color: #aaa;
+          }
+        }
+      }
+      .login-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #656ac6;
+        border: 0;
+        color: white;
+        width: 30%;
+        height: 45px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 21px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .login-btn:hover {
+    opacity: 0.9;
+  }
+
+  .site-footer {
+    margin-top: auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .page-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+$light-theme: (
+  block-1-bg: #e5f4ff,
+  block-2-bg: #d5e3ee,
+  text-color: #000000,
+  button-bg: #121212,
+  button-text: #ffffff,
+  header-bg: #e5f4ff,
+  footer-bg: #d5e3ee,
+  footer-text: #333,
+  footer-link: #333
+);
+
+$dark-theme: (
+  block-1-bg: #121212,
+  block-2-bg: #1e1e1e,
+  text-color: #ffffff,
+  button-bg: #ffffff,
+  button-text: #000000,
+  header-bg: #1e1e1e,
+  footer-bg: #1e1e1e,
+  footer-text: #ffffff,
+  footer-link: #ffffff
+);
+
+@mixin apply-theme($theme) {
+  background-color: map-get($theme, block-1-bg);
+  color: map-get($theme, text-color);
+
+  @for $i from 1 through 10 {
+    .block-main__#{$i} {
+      background-color: map-get($theme, block-#{($i % 2) + 1}-bg);
+      color: map-get($theme, text-color);
+    }
+  }
+
+  .theme-toggle {
+    background-color: map-get($theme, button-bg);
+    color: map-get($theme, button-text);
+
+    &:hover {
+      background-color: darken(map-get($theme, button-bg), 10%);
+    }
+  }
+
+  header {
+    background-color: map-get($theme, header-bg);
+
+    .block-2 {
+      a {
+        color: map-get($theme, text-color);
+      }
+
+      button {
+        background-color: map-get($theme, button-bg);
+        color: map-get($theme, button-text);
+
+        &:hover {
+          background-color: darken(map-get($theme, button-bg), 10%);
+        }
+      }
+    }
+  }
+
+  footer {
+    background-color: map-get($theme, footer-bg);
+    color: map-get($theme, footer-text);
+
+    .footer-section {
+      ul {
+        li {
+          a {
+            color: map-get($theme, footer-link);
+          }
+        }
+      }
+    }
+
+    .footer-bottom {
+      p {
+        color: map-get($theme, footer-text);
+      }
+    }
+  }
+}
+
+:root {
+  @include apply-theme($light-theme);
+}
+
+[data-theme="dark"] {
+  @include apply-theme($dark-theme);
+}
+
+[class^="block-main__"] {
+  border-radius: 10px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    color 0.3s;
+}
+
+// КОНЕЦ
+footer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+
+    .block-left {
+      width: 70%;
+    }
+
+    .block-right {
+      width: 30%;
+      display: flex;
+    }
+
+    .footer-section {
+      flex: 1;
+      margin: 10px;
+      min-width: 200px;
+
+      h3 {
+        margin-bottom: 15px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 10px;
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+
+    p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+  }
+}
